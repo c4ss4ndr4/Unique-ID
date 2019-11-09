@@ -1,0 +1,184 @@
+//Add to body tag 
+<body onload="addMeta('@Html.Raw(System.Configuration.ConfigurationManager.AppSettings["CaseCode"])')">
+
+//Create a js file with the following code.
+<script>
+
+function addMeta(caseCode) {
+//Check to see if there is already a meta tag from example, if so then amend it with additional content from the JSON file. If not, then add a meta tag to the head of the page with the content from the JSON file.
+
+//Casecode variable from the web.config file. The addMeta() function on the homepage will need to be updated depending on the type of site. The above line in the body onload function is for the Claims cases. 
+    var CC = caseCode;
+    var tagName = document.getElementsByTagName("meta");
+
+    var exampleTag = "false";
+    var exampleTagName;
+    var exampleMeta;
+
+    var name;
+    var contentjson;
+    
+//sets the type of example website
+    var type = "example:claims";
+
+
+//cycle through the meta tags, compare all the names to the list to see if one exists
+    for (var i = 0; i < tagName.length; i++) {
+
+//check to see if the example:{type} tag exists
+        if (tagName[i].name == "example:claims") {
+
+            exampleTag = "true";
+            exampleTagName = "example:claims";
+            exampleMeta = tagName[i];
+
+        } else if (tagName[i].name == "example:securities") {
+
+            exampleTag = "true";
+            exampleTagName = "example:securties";
+            exampleMeta = tagName[i];
+
+        } else if (tagName[i].name == "example:eclaim") {
+
+            exampleTag = "true";
+            exampleTagName = "example:eclaim";
+            exampleMeta = tagName[i];
+ 
+        } else if (tagName[i].name == "example:classview") {
+
+            exampleTag = "true";
+            exampleTagName = "example:classview";
+            exampleMeta = tagName[i];
+      
+//wildcard and regular expression to check for the example name with or without the rest of the tag
+        } else if (tagName[i].name.match(/example*/) == "example")  {
+            
+            exampleTag = "true";
+            exampleTagName = "example";
+            exampleMeta = tagName[i];
+
+        }
+    }
+
+    if (exampleTag == "true") {
+
+//if the exampleTag does exist then parse the json file for the new content and amend the existing content 
+
+        $.getJSON("http://localhost:60214/json.json", function (json) {
+            $.each(json, function (index, d) {
+                name = d.name;
+                contentjson = d.content[0] + " " + d.content[1];
+
+                if (name === "example:claims" && type === "example:claims" && exampleMeta.name === "example:claims") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", exampleMeta.name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:securities" && type === "example:securities" && exampleMeta.name === "example:securities") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", exampleMeta.name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:eclaim" && type === "example:eclaim" && exampleMeta.name === "example:eclaim") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", exampleMeta.name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:classview" && type === "example:classview" && exampleMeta.name === "example:classview") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", exampleMeta.name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:claims" && type === "example:claims" && exampleMeta.name != "example:claims") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:securities" && type === "example:securities" && exampleMeta.name != "example:securities") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:eclaim" && type === "example:eclaim" && exampleMeta.name != "example:eclaim") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:classview" && type === "example:classview" && exampleMeta.name != "example:classview") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", name);
+                    exampleMeta.setAttribute("content", amendMeta);
+              
+//If there is only a example tag, use the name associated with the page type. This is in case of spelling mistakes or mistitled existing meta tag.  
+} else if (name === "example:claims" && type === "example:claims" && exampleTagName === "example") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:securities" && type === "example:securities" && exampleTagName === "example") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:eclaim" && type === "example:eclaim" && exampleTagName === "example") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                } else if (name === "example:classview" && type === "example:classview" && exampleTagName === "example") {
+                    var metaContent = exampleMeta.content;
+                    var amendMeta = metaContent + "example" + " " + CC + " " + contentjson;
+                    exampleMeta.setAttribute("name", name);
+                    exampleMeta.setAttribute("content", amendMeta);
+                }
+            });
+        });
+
+    } else {
+
+//if there isn't a example meta tag then create one from the json file based on the type constant declared at the top.
+        $.getJSON("http://localhost:60214/json.json", function (json) {
+            $.each(json, function (index, d) {
+                name = d.name;
+                contentjson = d.content[0] + " " + d.content[1];
+
+                if (type === "example:claims" && name === "example:claims") {
+                    $("head").append("<meta name='" + name + "' content='" + contentjson + " " + CC + "' />");
+                } else if (type === "example:classview" && name === "example:classview") {
+                    $("head").append("<meta name='" + name + "' content='" + contentjson + " " + CC + "' />");
+                } else if (type === "example:securities" && name === "example:securities") {
+                    $("head").append("<meta name='" + name + "' content='" + contentjson + " " + CC + "' />");
+                } else if (type === "example:eclaim" && name === "example:eclaim") {
+                    $("head").append("<meta name='" + name + "' content='" + contentjson + " " + CC + "' />");
+                }
+
+            });
+        });
+    }
+}
+</script>
+
+//JSON file with meta tags, create separate file for this. 
+<script> 
+[
+  {
+    "name": "example:claims",
+    "content": [ "prevex", "Claims" ]
+  },
+  {
+    "name": "example:classview",
+    "content": [ "prevex", "Classview" ]
+  },
+  {
+    "name": "example:securities",
+    "content": [ "prevex", "Securities" ]
+  },
+  {
+    "name": "example:eclaim",
+    "content": [ "prevex", "E-Claims" ]
+  }
+]
+</script>
+
+
