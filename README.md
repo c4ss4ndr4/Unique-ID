@@ -2,7 +2,7 @@ Table of Contents\
 Unique ID Code\
 I.	Metadata Tags\
 II.	CSS ID's\
-Appendix:\
+Appendix:
 
 
 Unique ID Code 
@@ -48,23 +48,23 @@ Content Tag:
 4.	"prevex" or "example"
 
 Or…
-Name Tag:
-6.	example:casecode
-7.	example:date
-8.	example:type
-9.	example:producer
-10.	example:author
+Name Tag:\
+6.	example:casecode\
+7.	example:date\
+8.	example:type\
+9.	example:producer\
+10.	example:author\
 
-Content Tag:  	
-5.	{Casecode}
-6.	Publish date
-7.	Case type
-8.	"prevex" or "example"
-9.	(author-name)
+Content Tag:\  	
+5.	{Casecode}\
+6.	Publish date\
+7.	Case type\
+8.	"prevex" or "example"\
+9.	(author-name)\
 
-For example I suggest the following to be added to the <head> of the home page with the following mark-up:
-<meta name="example:typeindentifier" content="example:{casecode}" />
-Or…
+For example I suggest the following to be added to the <head> of the home page with the following mark-up:\
+<meta name="example:typeindentifier" content="example:{casecode}" />\
+Or…\
 <meta name="example" content="example:{casecode} typeidentifier" />
 
 
@@ -98,11 +98,12 @@ Example JavaScript code to add a unique metadata tag to the head of the page fou
 
             }
         }
-</script>
-II.	CSS ID's
+</script>\
+
+II.	CSS ID's\
 
 In comparison, a CSS ID can be added to the body of the page to uniquely identify it. The simplicity of searching for an ID with JavaScript is appealing, the fidelity of metadata tags increasing the amount of data to be included in the marker.
-Example JavaScript to add unique ID to body id CSS selector:
+Example JavaScript to add unique ID to body id CSS selector:\
 
 <script>
         function addId() {
