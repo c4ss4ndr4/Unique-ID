@@ -60,7 +60,7 @@ Content Tag:\
 6.	Publish date\
 7.	Case type\
 8.	"prevex" or "example"\
-9.	(author-name)\
+9.	(author-name)
 
 For example I suggest the following to be added to the <head> of the home page with the following mark-up:\
 <meta name="example:typeindentifier" content="example:{casecode}" />\
@@ -98,12 +98,13 @@ Example JavaScript code to add a unique metadata tag to the head of the page fou
 
             }
         }
-</script>\
+</script>
 
 II.	CSS ID's\
 
 In comparison, a CSS ID can be added to the body of the page to uniquely identify it. The simplicity of searching for an ID with JavaScript is appealing, the fidelity of metadata tags increasing the amount of data to be included in the marker.
-Example JavaScript to add unique ID to body id CSS selector:\
+Example JavaScript to add unique ID to body id CSS selector:
+
 
 <script>
         function addId() {
