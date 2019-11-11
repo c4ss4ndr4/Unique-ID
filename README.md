@@ -1,8 +1,8 @@
-Table of Contents
-Unique ID Code	1
-I.	Metadata Tags	1
-II.	CSS ID's	4
-Appendix:	5
+Table of Contents\
+Unique ID Code\
+I.	Metadata Tags\
+II.	CSS ID's\
+Appendix:\
 
 
 Unique ID Code 
