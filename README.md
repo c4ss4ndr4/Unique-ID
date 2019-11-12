@@ -108,7 +108,8 @@ In comparison, a CSS ID can be added to the body of the page to uniquely identif
 Example JavaScript to add unique ID to body id CSS selector:
 
   
-```<script>
+```
+<script>
         
 	function addId() {
             var t = document.getElementsByTagName("body")[0];
