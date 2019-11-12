@@ -72,6 +72,7 @@ Or…
 
 Example JavaScript code to add a unique metadata tag to the head of the page found in the appendix of the document. Below is a simplified version of the more sophisticated script included in the Appendix.
 
+```
 <body onload="addMeta()">
 <script>
         function addMeta() {
@@ -101,6 +102,7 @@ Example JavaScript code to add a unique metadata tag to the head of the page fou
             }
         }
 </script>
+```
 
 II.	CSS ID's
 
@@ -128,5 +130,5 @@ Example JavaScript to add unique ID to body id CSS selector:
 	console.log(newId);
         }        
 </script>
-
+```
 	
